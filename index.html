@@ -1,21 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+
 
 
 </head>
 
 <body>
-    <header class="header"> 
-        <h1>Weather Dashboard </h1>
+    <header class="header">
+        <h1> Weather Dashboard </h1>
     </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <form id="city-form">
+                    <label for="city-input">Search for city:</label> <br>
+                    <input type="text" id="city-input">
+                    <input id="add-city" type="submit" value="Search">
+                </form>
+                <ul class="list-group">
+                    <li class="list-group-item">city1</li>
+                    <li class="list-group-item">city2</li>
+                    <li class="list-group-item">city3</li>
+                    <li class="list-group-item">city4</li>
+                    <li class="list-group-item">city5</li>
+                    <li class="list-group-item">city6</li>
+                    <li class="list-group-item">city7</li>
+                    <li class="list-group-item">city8</li>
+                </ul>
 
-    
+            </div>
+
+            <div class="col-md-8">
+                <div class="searchedCity">
+                    <h3> city name searched info here</h3>
+                </div>
+                <div class="fiveDay">
+                    <h3>5 day forecast</h3>
+                    <div class="flex-container">
+                        <div class="day1"></div>
+                        <div class="day2"></div>
+                        <div class="day3"></div>
+                        <div class="day4"></div>
+                        <div class="day5"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
 
     <script src="assets/script.js"></script>
 </body>
+
 </html>
