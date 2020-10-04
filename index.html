@@ -71,7 +71,12 @@
                 <div class="fiveDay">
                     <h3>5 day forecast</h3>
                     <div class="flex-container">
-                        <div class="day1"></div>
+                        <div class="day1">
+                            <p class="dt"></p>
+                            <p class="icon"></p>
+                            <p class="temp5"></p>
+                            <p class="humidity5"></p>
+                        </div>
                         <div class="day2"></div>
                         <div class="day3"></div>
                         <div class="day4"></div>
@@ -132,11 +137,12 @@
     <!--5 day forecast link:-->
 
     <script type="text/javascript">
+
         // This is our API key: MK- entered my API key from website
-        var APIKey2 = "f0dbb3c5fa5e864ea61852d64b0137d6";
+        var APIKey = "68498a4d04f4da5284313a372d17c548";
 
         // Added the URL and put in Austin as the city to test: 
-        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=Austin,Texas&appid=" + APIKey2;
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=Austin,Texas&appid=" + APIKey;
 
         // Here we run our AJAX call to the OpenWeatherMap API
         $.ajax({
@@ -153,18 +159,20 @@
                 console.log(response);
 
                 // Transfer content to HTML
-                $(".cityNameD").html("City: " + response.name);
-                $(".tempD").text("Temperature: " + response.main.temp);
-                $(".humidityD").text("Humidity: " + response.main.humidity);
-                $(".windspeedD").text("Wind Speed: " + response.wind.speed);
+                $(".dt").html(" " + response.list[0].dt);
+                $(".icon").text(" " + response.list[0].weather.icon);
+                $(".temp5").text(" " + response.list[0].main.temp);
+                $(".humidity5").text(" " + response.list[0].main.humidity);
+                
                 // check the uv index response - couldnt find in example.
                 // $(".uvindex").text("UV Index: " + response.main.uvindex);
 
                 // Log the data in the console as well
-                console.log("City: " + response.name);
-                console.log("Temperature: " + response.main.temp);
-                console.log("Humidity: " + response.main.humidity);
-                console.log("Wind Speed: " + response.wind.speed);
+                console.log(" " + response.dt);
+                console.log(" " + response.weather.icon);
+                console.log(" " + response.main.temp);
+                console.log(" " + response.main.humidity);
+                
                 // console.log("UV Index: " + response.);
             });
     </script>
