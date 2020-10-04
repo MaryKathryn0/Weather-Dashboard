@@ -44,18 +44,26 @@
                         <thead>
                             <tr>
                                 <!-- The scope attribute specifies that this is a header for a column -->
-                                <th scope="col">description</th>
-                                <th scope="col">result</th>
+                                <th scope="col">Current Weather Details</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Space for searched cities to appear in additional row-->
                             <tr>
-                                <td id="cityNameD"></td>
-                                <td id="tempD">Temperature:</td>
-                                <td id="humidityD">Humidity:</td>
-                                <td id="windD">Wind Speed:</td>
-                                <td id="uvIndexD">UV Index: </td>
+                                <td class="cityNameD">City: </td>
+                            </tr>
+                            <tr>
+                                <td class="tempD">Temperature: </td>
+                            </tr>
+                            <tr>
+                                <td class="humidityD">Humidity: </td>
+                            </tr>
+                            <tr>
+                                <td class="windD">Wind Speed: </td>
+                            </tr>
+                            <tr>
+                                <td class="uvIndexD">UV Index: </td>
                             </tr>
                         </tbody>
                     </table>
@@ -76,14 +84,6 @@
     </div>
 
     <!--Link to the weather API information-->
-
-    <!-- Retrieved data will be dumped here -->
-    <div class="city"></div>
-    <div class="temp"></div>
-    <div class="humidity"></div>
-    <div class="windspeed"></div>
-    <div class="uvindex"></div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         // This is our API key: MK- entered my API key from website
@@ -107,27 +107,68 @@
                 console.log(response);
 
                 // Transfer content to HTML
-                $(".city").html("<cityNameD>" + response.name);
-                $(".temp").text("Temperature: " + response.main.temp);
-                $(".humidity").text("Humidity: " + response.main.humidity);
-                $(".windspeed").text("Wind Speed: " + response.wind.speed);
+                $(".cityNameD").html("City: " + response.name);
+                $(".tempD").text("Temperature: " + response.main.temp);
+                $(".humidityD").text("Humidity: " + response.main.humidity);
+                $(".windspeedD").text("Wind Speed: " + response.wind.speed);
                 // check the uv index response - couldnt find in example.
                 // $(".uvindex").text("UV Index: " + response.main.uvindex);
 
-
-
-
                 // Log the data in the console as well
-                console.log("<h1>" + response.name + " Weather Details</h1>");
+                console.log("City: " + response.name);
                 console.log("Temperature: " + response.main.temp);
                 console.log("Humidity: " + response.main.humidity);
                 console.log("Wind Speed: " + response.wind.speed);
-
-
+                // console.log("UV Index: " + response.);
             });
 
 
+
+
+
+
+
     </script>
+    <!--5 day forecast link:-->
+
+    <script type="text/javascript">
+        // This is our API key: MK- entered my API key from website
+        var APIKey2 = "f0dbb3c5fa5e864ea61852d64b0137d6";
+
+        // Added the URL and put in Austin as the city to test: 
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=Austin,Texas&appid=" + APIKey2;
+
+        // Here we run our AJAX call to the OpenWeatherMap API
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+            // We store all of the retrieved data inside of an object called "response"
+            .then(function (response) {
+
+                // Log the queryURL
+                console.log(queryURL);
+
+                // Log the resulting object
+                console.log(response);
+
+                // Transfer content to HTML
+                $(".cityNameD").html("City: " + response.name);
+                $(".tempD").text("Temperature: " + response.main.temp);
+                $(".humidityD").text("Humidity: " + response.main.humidity);
+                $(".windspeedD").text("Wind Speed: " + response.wind.speed);
+                // check the uv index response - couldnt find in example.
+                // $(".uvindex").text("UV Index: " + response.main.uvindex);
+
+                // Log the data in the console as well
+                console.log("City: " + response.name);
+                console.log("Temperature: " + response.main.temp);
+                console.log("Humidity: " + response.main.humidity);
+                console.log("Wind Speed: " + response.wind.speed);
+                // console.log("UV Index: " + response.);
+            });
+    </script>
+
     <script src="assets/script.js"></script>
 </body>
 
