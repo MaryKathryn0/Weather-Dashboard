@@ -26,14 +26,7 @@
                     <input id="add-city" type="submit" value="Search">
                 </form>
                 <ul class="list-group">
-                    <li class="list-group-item">city1</li>
-                    <li class="list-group-item">city2</li>
-                    <li class="list-group-item">city3</li>
-                    <li class="list-group-item">city4</li>
-                    <li class="list-group-item">city5</li>
-                    <li class="list-group-item">city6</li>
-                    <li class="list-group-item">city7</li>
-                    <li class="list-group-item">city8</li>
+
                 </ul>
 
             </div>
@@ -72,10 +65,10 @@
                     <h3>5 day forecast</h3>
                     <div class="flex-container">
                         <div class="day1">
-                            <p class="dt"></p>
-                            <p class="icon"></p>
-                            <p class="temp5"></p>
-                            <p class="humidity5"></p>
+                            <p class="dt"></p><br>
+                            <p class="icon"></p><br>
+                            <p class="temp5"></p><br>
+                            <p class="humidity5"></p><br>
                         </div>
                         <div class="day2"></div>
                         <div class="day3"></div>
@@ -88,95 +81,16 @@
         </div>
     </div>
 
-    <!--Link to the weather API information-->
+
+
+    
+    
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        // This is our API key: MK- entered my API key from website
-        var APIKey = "68498a4d04f4da5284313a372d17c548";
-
-        // Added the URL and put in Austin as the city to test: 
-        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Austin,Texas&appid=" + APIKey;
-
-        // Here we run our AJAX call to the OpenWeatherMap API
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-            // We store all of the retrieved data inside of an object called "response"
-            .then(function (response) {
-
-                // Log the queryURL
-                console.log(queryURL);
-
-                // Log the resulting object
-                console.log(response);
-
-                // Transfer content to HTML
-                $(".cityNameD").html("City: " + response.name);
-                $(".tempD").text("Temperature: " + response.main.temp);
-                $(".humidityD").text("Humidity: " + response.main.humidity);
-                $(".windspeedD").text("Wind Speed: " + response.wind.speed);
-                // check the uv index response - couldnt find in example.
-                // $(".uvindex").text("UV Index: " + response.main.uvindex);
-
-                // Log the data in the console as well
-                console.log("City: " + response.name);
-                console.log("Temperature: " + response.main.temp);
-                console.log("Humidity: " + response.main.humidity);
-                console.log("Wind Speed: " + response.wind.speed);
-                // console.log("UV Index: " + response.);
-            });
-
-
-
-
-
-
-
-    </script>
-    <!--5 day forecast link:-->
-
-    <script type="text/javascript">
-
-        // This is our API key: MK- entered my API key from website
-        var APIKey = "68498a4d04f4da5284313a372d17c548";
-
-        // Added the URL and put in Austin as the city to test: 
-        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=Austin,Texas&appid=" + APIKey;
-
-        // Here we run our AJAX call to the OpenWeatherMap API
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-            // We store all of the retrieved data inside of an object called "response"
-            .then(function (response) {
-
-                // Log the queryURL
-                console.log(queryURL);
-
-                // Log the resulting object
-                console.log(response);
-
-                // Transfer content to HTML
-                $(".dt").html(" " + response.list[0].dt);
-                $(".icon").text(" " + response.list[0].weather.icon);
-                $(".temp5").text(" " + response.list[0].main.temp);
-                $(".humidity5").text(" " + response.list[0].main.humidity);
-                
-                // check the uv index response - couldnt find in example.
-                // $(".uvindex").text("UV Index: " + response.main.uvindex);
-
-                // Log the data in the console as well
-                console.log(" " + response.dt);
-                console.log(" " + response.weather.icon);
-                console.log(" " + response.main.temp);
-                console.log(" " + response.main.humidity);
-                
-                // console.log("UV Index: " + response.);
-            });
-    </script>
-
+   
     <script src="assets/script.js"></script>
 </body>
 

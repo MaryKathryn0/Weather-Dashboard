@@ -26,6 +26,13 @@
     height: 80%;
 }
 
+.list-group-item {
+    padding-top: 5px;
+    padding-bottom:10px;
+    height: 80%;
+}
+}
+
 .searchedCity {
     background-color: white;
     color: black;
