@@ -6,14 +6,17 @@ $("#add-city").on("click", function (event) {
     // Here, it prevents the submit button from trying to submit a form when clicked
     event.preventDefault();
 
-    // Here we grab the text from the input box
+    // Here we grab the text from the input box - city
     var city = $("#city-input").val();
+
+    
 
     // This is our API key: MK- entered my API key from website
     var APIKey = "68498a4d04f4da5284313a372d17c548";
 
     // Here we construct our URL
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+
     // 5 day forecast 
     var queryURL5 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey;
   
@@ -22,6 +25,12 @@ $("#add-city").on("click", function (event) {
         url: queryURL,
         method: "GET"
     })
+    // UV index ajax
+    $.ajax({
+        url: queryURLUv,
+        method: "GET"
+    })
+
     .then(function (response) {
         var cityName = $("<li>").text(response.name)
         $(".list-group").append(cityName)
@@ -70,8 +79,12 @@ $("#add-city").on("click", function (event) {
                 $(".dt").text(" " + response.list[0].dt);
                 $(".icon").img(" " + response.list[0].weather.icon);
                 $(".humidity5").text(" " + response.list[0].main.humidity);
-                // check the uv index response - couldnt find in example.
-                // $(".uvindex").text("UV Index: " + response.main.uvindex);
+
+                
+                //Change the date to correct format:
+                
+                // var date = moment().add(i, "days").format("M/DD/YYYY");
+                // $(".date").text(" " + response.);
                 
                 // Convert the temp to fahrenheit
                 var temp5 = (response.main.temp - 273.15) * 1.80 + 32;
@@ -84,7 +97,7 @@ $("#add-city").on("click", function (event) {
                 //console.log(" " + response.list[0].main.temp);
                 console.log(" " + response.list[0].main.humidity);
                 console.log(" " + temp5);
-                // console.log("UV Index: " + response.);
+              
             });
 
 
