@@ -42,6 +42,7 @@ $("#add-city").on("click", function (event) {
             console.log(response);
 
             // Transfer content to HTML
+            //get picture for the icon
             var iconURL = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
             console.log(iconURL)
             // Transfer content to HTML
@@ -100,15 +101,13 @@ $("#add-city").on("click", function (event) {
 
                         // Transfer content to HTML
                         $(".dt").text(" " + response.list[0].dt_txt);
-                        var iconURL = "http://openweathermap.org/img/w/" + response.list[0].weather.icon + ".png"
+                        //get picture for the icon
+                        var iconURL = "http://openweathermap.org/img/w/" + response.list[0].weather[0].icon + ".png"
                         console.log(iconURL)
                         // Transfer content to HTML
-                        $(".icon").html(" " + iconURL);
-                        // $(".icon").attr("src", "http://openweathermap.org/img/w/" + response.list[0].weather.icon + ".png")
+                        
+                        $(".icon").attr("src", iconURL);
                         $(".humidity5").text(" " + response.list[0].main.humidity);
-
-
-
                         // Convert the temp to fahrenheit
                         var temp5 = (response.list[0].main.temp - 273.15) * 1.80 + 32;
                         // add temp content to html
