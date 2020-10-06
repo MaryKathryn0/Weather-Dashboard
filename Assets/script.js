@@ -100,7 +100,11 @@ $("#add-city").on("click", function (event) {
 
                         // Transfer content to HTML
                         $(".dt").text(" " + response.list[0].dt_txt);
-                        $(".icon").attr("src", "http://openweathermap.org/img/w/" + response.list[0].weather.icon + ".png")
+                        var iconURL = "http://openweathermap.org/img/w/" + response.list[0].weather.icon + ".png"
+                        console.log(iconURL)
+                        // Transfer content to HTML
+                        $(".icon").html(" " + iconURL);
+                        // $(".icon").attr("src", "http://openweathermap.org/img/w/" + response.list[0].weather.icon + ".png")
                         $(".humidity5").text(" " + response.list[0].main.humidity);
 
 
