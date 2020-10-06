@@ -92,20 +92,16 @@ $("#add-city").on("click", function (event) {
                 })
 
                     .then(function (response) {
-
                         // Log the queryURL
                         console.log(queryURL);
-
                         // Log the resulting object
                         console.log(response);
-
                         // Transfer content to HTML
                         $(".dt").text(" " + response.list[0].dt_txt);
                         //get picture for the icon
                         var iconURL = "http://openweathermap.org/img/w/" + response.list[0].weather[0].icon + ".png"
                         console.log(iconURL)
                         // Transfer content to HTML
-                        
                         $(".icon").attr("src", iconURL);
                         $(".humidity5").text(" " + response.list[0].main.humidity);
                         // Convert the temp to fahrenheit
@@ -116,7 +112,6 @@ $("#add-city").on("click", function (event) {
                         // Log the data in the console as well
                         console.log(" " + response.list[0].dt_txt);
                         console.log(" " + response.list[0].weather.icon);
-
                         console.log(" " + response.list[0].main.humidity);
                         console.log(" " + temp5);
 
