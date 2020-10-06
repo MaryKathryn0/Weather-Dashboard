@@ -90,32 +90,45 @@ $("#add-city").on("click", function (event) {
                     url: queryURL5,
                     method: "GET"
                 })
-
+                     //Day1
                     .then(function (response) {
+
+                        for(var i=0;i<response.list.length;i++){
+
+                       
+                        console.log(response.list[i]);  
                         // Log the queryURL
                         console.log(queryURL);
                         // Log the resulting object
-                        console.log(response);
+                        console.log(response.list,"response");
                         // Transfer content to HTML
-                        $(".dt").text(" " + response.list[0].dt_txt);
+                        $(".dt").text(" " + response.list[i].dt_txt);
                         //get picture for the icon
-                        var iconURL = "http://openweathermap.org/img/w/" + response.list[0].weather[0].icon + ".png"
+                        var iconURL = "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png"
                         console.log(iconURL)
                         // Transfer content to HTML
                         $(".icon").attr("src", iconURL);
-                        $(".humidity5").text(" " + response.list[0].main.humidity);
+                        $(".humidity5").text(" " + response.list[i].main.humidity);
                         // Convert the temp to fahrenheit
-                        var temp5 = (response.list[0].main.temp - 273.15) * 1.80 + 32;
+                        var temp5 = (response.list[i].main.temp - 273.15) * 1.80 + 32;
                         // add temp content to html
-                        $(".temp").text("Temperature (K) " + response.list[0].main.temp);
+                        $(".temp").text("Temperature (K) " + response.list[i].main.temp);
                         $(".temp5").text("Temperature (F) " + temp5.toFixed(2));
                         // Log the data in the console as well
-                        console.log(" " + response.list[0].dt_txt);
-                        console.log(" " + response.list[0].weather.icon);
-                        console.log(" " + response.list[0].main.humidity);
+                        console.log(" " + response.list[i].dt_txt);
+                        console.log(" " + response.list[i].weather.icon);
+                        console.log(" " + response.list[i].main.humidity);
                         console.log(" " + temp5);
 
+                        //day 2
+
+
+                        
+                        }
+
                     });
+                    
+                        
             });
 
         });
