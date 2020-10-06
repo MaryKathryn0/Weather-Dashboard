@@ -41,23 +41,26 @@ $("#add-city").on("click", function (event) {
             // Log the resulting object
             console.log(response);
 
-                // Transfer content to HTML
-                $(".cityNameD").html("City: " + response.name);
-                $(".humidityD").text("Humidity: " + response.main.humidity);
-                $(".windD").text("Wind Speed: " + response.wind.speed);
-                // check the uv index response - couldnt find in example.
+            // Transfer content to HTML
+            var iconURL = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
+            console.log(iconURL)
+            // Transfer content to HTML
+            $(".cityNameD").html("City: " + response.name + "<span><img src=" + iconURL + "></img></span>");
+            $(".humidityD").text("Humidity: " + response.main.humidity);
+            $(".windD").text("Wind Speed: " + response.wind.speed);
+            // check the uv index response - couldnt find in example.
 
 
-                // Convert the temp to fahrenheit
-                var tempD = (response.main.temp - 273.15) * 1.80 + 32;
-                // add temp content to html
-                $(".temp").text("Temperature (K) " + response.main.temp);
-                $(".tempD").text("Temperature (F) " + tempD.toFixed(2));
-                // Log the data in the console as well
-                console.log("City: " + response.name);
+            // Convert the temp to fahrenheit
+            var tempD = (response.main.temp - 273.15) * 1.80 + 32;
+            // add temp content to html
+            $(".temp").text("Temperature (K) " + response.main.temp);
+            $(".tempD").text("Temperature (F) " + tempD.toFixed(2));
+            // Log the data in the console as well
+            console.log("City: " + response.name);
 
-                console.log("Humidity: " + response.main.humidity);
-                console.log("Wind Speed: " + response.wind.speed);
+            console.log("Humidity: " + response.main.humidity);
+            console.log("Wind Speed: " + response.wind.speed);
 
             //Lat and Lon 
             var lat = response.coord.lat
@@ -75,9 +78,9 @@ $("#add-city").on("click", function (event) {
                 var uvIndexD = response.value;
 
                 // Creating an element to have the rating displayed
-                $(".uvindex").text("UV Index: " + response.value);
+                $(".uvIndexD").text("UV Index: " + uvIndexD);
 
-                console.log("UV Index: " + response.value);
+                console.log("UV Index: " + uvIndexD);
                 console.log("Temperature (F): " + tempD);
 
 
@@ -96,25 +99,21 @@ $("#add-city").on("click", function (event) {
                         console.log(response);
 
                         // Transfer content to HTML
-                        $(".dt").text(" " + response.list[0].dt);
-                        $(".icon").img(" " + response.list[0].weather.icon);
+                        $(".dt").text(" " + response.list[0].dt_txt);
+                        $(".icon").attr("src", "http://openweathermap.org/img/w/" + response.list[0].weather.icon + ".png")
                         $(".humidity5").text(" " + response.list[0].main.humidity);
 
 
-                        //Change the date to correct format:
-
-                        // var date = moment().add(i, "days").format("M/DD/YYYY");
-                        // $(".date").text(" " + response.);
 
                         // Convert the temp to fahrenheit
-                        var temp5 = (response.main.temp - 273.15) * 1.80 + 32;
+                        var temp5 = (response.list[0].main.temp - 273.15) * 1.80 + 32;
                         // add temp content to html
                         $(".temp").text("Temperature (K) " + response.list[0].main.temp);
                         $(".temp5").text("Temperature (F) " + temp5.toFixed(2));
                         // Log the data in the console as well
-                        console.log(" " + response.list[0].dt);
+                        console.log(" " + response.list[0].dt_txt);
                         console.log(" " + response.list[0].weather.icon);
-                        //console.log(" " + response.list[0].main.temp);
+
                         console.log(" " + response.list[0].main.humidity);
                         console.log(" " + temp5);
 
