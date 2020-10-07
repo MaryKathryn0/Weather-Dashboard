@@ -27,6 +27,9 @@
 }
 
 .list-group-item {
+    
+    color: black;
+    border: black;
     padding-top: 5px;
     padding-bottom:10px;
     height: 80%;

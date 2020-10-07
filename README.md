@@ -1,21 +1,17 @@
 # Weather-Dashboard
 Server-Side APIs: Weather Dashboard
 
+# Live Link 
+https://marykathryn0.github.io/Weather-Dashboard/.
+
 # Goal
 
-The client wanted a website that could be accessed from their phone to see the weather
+The client wanted a website that could be accessed from their phone to see the weather outlook at multiple cities they will be visiting. 
 
-## User Story
-
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
 
 ## Acceptance Criteria
+The below is the criteria the client wanted:
 
-```
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
 THEN I am presented with current and future conditions for that city and that city is added to the search history
@@ -29,20 +25,39 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
-```
 
-The following image demonstrates the application functionality:
+
+Client would like it to look like the following image demonstrates the application functionality:
 
 ![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
 
-## Review
+# Scope of Work to meet client requirements:
+WHEN I search for a city
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+  - Added previously search cities below the search bar for reference:
 
-You are required to submit the following for review:
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+  - Current weather indicators are displayed from city searched:
 
-* The URL of the deployed application.
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
+  - 5 day forecast generates after initial button click:
 
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city
+  - Previous searches can be clicked to go back and review that information:
 
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+
+## Credits
+
+Edited by Mary Kathryn Holt; https://github.com/MaryKathryn0. Content provided by: https://github.com/the-Coding-Boot-Camp-at-UT/UTA-AUS-FSF-FT-09-2020-U-C/
+
+https://github.com/MaryKathryn0/Weather-Dashboard
+
+Used HTML, CSS, JQuery, Javascript
+Used https://openweathermap.org for the APIs
+Referenced W3schools website 
+
 
