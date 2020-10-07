@@ -32,9 +32,10 @@ $("#add-city").on("click", function (event) {
         // })
 
         .then(function (response) {
-            var cityName = $("<li>").text(response.name)
+            var cityName = ('<li class="list-group-item"><span href="#"class="stretched-link">'+(response.name)+'</span></li>');
+            
             $(".list-group").append(cityName)
-            $(".list-group-item").text(JSON.stringify(response));
+            // $(".list-group-item").text(JSON.stringify(response));
             console.log(response.name)
 
             // Main CITY results details:
