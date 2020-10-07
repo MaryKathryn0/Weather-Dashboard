@@ -35,6 +35,7 @@ Client would like it to look like the following image demonstrates the applicati
 WHEN I search for a city
 THEN I am presented with current and future conditions for that city and that city is added to the search history
   - Added previously search cities below the search bar for reference:
+  Assets/Search.png
 
 WHEN I view current weather conditions for that city
 THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
