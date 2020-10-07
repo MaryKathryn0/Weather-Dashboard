@@ -35,15 +35,17 @@ Client would like it to look like the following image demonstrates the applicati
 WHEN I search for a city
 THEN I am presented with current and future conditions for that city and that city is added to the search history
   - Added previously search cities below the search bar for reference:
-  Assets/Search.png
+  ![Search](Assets/Search.png)
 
 WHEN I view current weather conditions for that city
 THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
   - Current weather indicators are displayed from city searched:
+  ![CurrentWeather](Assets/current.png)
 
 WHEN I view future weather conditions for that city
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
   - 5 day forecast generates after initial button click:
+  ![5DayForecast](Assets/5day.png)
 
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
